@@ -1,0 +1,2028 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f5">
+  <title>Premium moisturizers over $25</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: white;
+  padding-top: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  min-height: 100vh;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #E4FBFB 0%, #E4FBFB 70%, rgba(232, 250, 249, 0.85) 100%);
+  padding: 12px 16px;
+  margin: 0 -16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.subheader {
+  background: white;
+  padding: 24px 16px;
+  margin: 0 -16px 16px -16px;
+  display: flex;
+  justify-content: center;
+}
+
+.subheader-pill {
+  background: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transform: skewX(-11deg);
+}
+
+.subheader-pill > * {
+  transform: skewX(11deg);
+}
+
+.subheader h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+  text-align: center;
+}
+
+.subheader-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+  opacity: 0.5;
+  margin-top: 4px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.grid {
+  column-count: 2;
+  column-gap: 12px;
+}
+
+.grid .product {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  display: inline-block;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .grid { column-count: 3; }
+}
+
+@media (min-width: 900px) {
+  .grid { column-count: 4; }
+}
+
+.product {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: block;
+}
+
+.product:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.product:active {
+  transform: scale(0.98);
+}
+
+/* Video card styles */
+.product-video-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+}
+
+.product-video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.product-video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+@media (hover: hover) {
+  .product:hover .product-video-overlay {
+    opacity: 1;
+  }
+}
+
+.product-video-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.3;
+}
+
+.product.video-card {
+  overflow: hidden;
+  height: fit-content;
+}
+
+.product-image-container {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+  transition: background-color 0.3s ease;
+  border-radius: 12px 12px 0 0;
+}
+
+.product-image-circle {
+  width: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+.no-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price {
+  font-size: 11px;
+  font-weight: 400;
+  color: #666;
+}
+
+.rating {
+  display: none;
+}
+
+.modal-rating {
+  font-size: 16px;
+  color: #f5a623;
+}
+
+.badges {
+  display: none;
+}
+
+.modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Expired page styles */
+.expired-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.expired-container h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.expired-container p {
+  color: #666;
+  font-size: 16px;
+  max-width: 300px;
+}
+
+/* Empty state */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-container p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+.modal-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.modal-card.closing {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image {
+  width: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f0f0f0;
+  margin: 0 auto;
+  display: block;
+}
+
+.modal-info {
+  padding: 20px;
+}
+
+.modal-brand {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.modal-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.modal-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.modal-rating {
+  font-size: 16px;
+  color: #f5a623;
+  margin-bottom: 16px;
+}
+
+.modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.modal-badges .badge {
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+.modal-reviews {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.modal-reviews-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.suni-summary {
+  background: linear-gradient(135deg, #E4FBFB 0%, #d5f5f3 100%);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.suni-summary-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4ABDB5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.suni-summary-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.suni-summary-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.reviews-list-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.modal-review {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.modal-btn {
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-btn-primary {
+  background: #E4FBFB;
+  color: #333;
+}
+
+.modal-btn-secondary {
+  background: #f0f0f0;
+  color: #111;
+}
+</style>
+</head>
+<body>
+  <header class="sticky-header">
+    <a href="sms:+16463182774&body=Just%20read%20your%20list%20of%20premium%20moisturizers%20under%20%2425%0A" class="header-link">
+      <img src="suni_avatar.png" alt="Suni's avatar" class="header-avatar">
+    </a>
+  </header>
+  <div class="subheader">
+    <div class="subheader-pill">
+      <h1>Suni's Suggestions</h1>
+      <p class="subheader-subtitle">Premium products for your first winter in NYC</p>
+    </div>
+  </div>
+  <div class="grid">
+    <a href="https://www.sephora.com/product/longevity-serum-P517920?skuId=2893642#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2893642-main-zoom.jpg?imwidth=315" alt="Tatcha The Longevity Skin Strength &amp; Age Delay Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">Tatcha</span>
+        <span class="name">Tatcha The Longevity Skin Strength &amp; Age Delay Serum</span>
+        <span class="price">$76.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Good for Anti-Aging</span><span class="badge">Good for Loss of firmness</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/dynamic-skin-strengthening-serum-P515703?skuId=2865079" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2865079-main-zoom.jpg?imwidth=930" alt="Dermalogica Dynamic Skin Strengthening Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">Dermalogica</span>
+        <span class="name">Dermalogica Dynamic Skin Strengthening Serum</span>
+        <span class="price">$92.00 or $87.40 (5% off) with Auto-Replenish</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Fragrance Free</span><span class="badge">allure 2025 Best of Beauty Award Winner</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/dr-jart-ceramidin-tm-skin-barrier-moisturizing-mask-P504042?skuId=2640647" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2640647-main-zoom.jpg?imwidth=930" alt="Dr. Jart+ Ceramidin™ Skin Barrier Moisturizing Mask" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Jart+</span>
+        <span class="name">Dr. Jart+ Ceramidin™ Skin Barrier Moisturizing Mask</span>
+        <span class="price">$10.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Highly rated by customers</span><span class="badge">Hydrating</span><span class="badge">Ceramide</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/aqua-bomb-sleeping-mask-P433443?skuId=2111649" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2111649-main-zoom.jpg?imwidth=930" alt="belif Aqua Bomb Sleeping Mask" loading="lazy">
+      <div class="info">
+        <span class="brand">belif</span>
+        <span class="name">belif Aqua Bomb Sleeping Mask</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Highly Rated</span><span class="badge">Best Seller</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/blueberry-bounce-gentle-cleanser-P436359?skuId=2131803" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2131803-main-zoom.jpg?imwidth=930" alt="Glow Recipe Blueberry Bounce Gentle Cleanser" loading="lazy">
+      <div class="info">
+        <span class="brand">Glow Recipe</span>
+        <span class="name">Glow Recipe Blueberry Bounce Gentle Cleanser</span>
+        <span class="price">$34.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-beauty-elixir-face-mist-P481817?skuId=2534485" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2534485-main-zoom.jpg?imwidth=315" alt="Caudalie Beauty Elixir Prep, Set, Glow Face Mist" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Beauty Elixir Prep, Set, Glow Face Mist</span>
+        <span class="price">$49.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Clean + Planet Aware</span><span class="badge">Vegan</span><span class="badge">Trending on Social</span><span class="badge">Good for: Pores</span><span class="badge">Community Favorite</span><span class="badge">allure 2024 Best of Beauty Award Winner</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/gentle-retinol-salicylic-acne-serum-P515336?skuId=2857043" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2857043-main-zoom.jpg?imwidth=315" alt="innisfree Gentle Retinol + Salicylic Acid Acne Serum for Blemishes + Post-Acne Scars" loading="lazy">
+      <div class="info">
+        <span class="brand">innisfree</span>
+        <span class="name">innisfree Gentle Retinol + Salicylic Acid Acne Serum for Blemishes + Post-Acne Scars</span>
+        <span class="price">$34.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Retinol</span><span class="badge">FSA/HSA Eligible</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/hydro-surge-dewy-face-mist-P517115?skuId=2866275" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2866275-main-zoom.jpg?imwidth=315" alt="The INKEY List Hydro-Surge Dewy Face Mist" loading="lazy">
+      <div class="info">
+        <span class="brand">The INKEY List</span>
+        <span class="name">The INKEY List Hydro-Surge Dewy Face Mist</span>
+        <span class="price">$12.35</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Good for: Dryness</span><span class="badge">Vegan</span><span class="badge">Fragrance Free</span><span class="badge">Good for: Skin Barrier</span><span class="badge">Without Silicones</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/topicals-clearly-clarifying-calming-mask-for-breakout-prone-skin-P514700?skuId=2813046" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2813046-main-zoom.jpg?imwidth=930" alt="Topicals Clearly Clarifying &amp; Calming Mask For Breakout-Prone Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">Topicals</span>
+        <span class="name">Topicals Clearly Clarifying &amp; Calming Mask For Breakout-Prone Skin</span>
+        <span class="price">$26.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Fragrance Free</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Non-Comedogenic</span><span class="badge">Cruelty-Free</span><span class="badge">FSA/HSA Eligible</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/kiehls-ultra-body-mega-moisture-squalane-cream-P513722?skuId=2791325" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2791325-main-zoom.jpg?imwidth=315" alt="Kiehl&#x27;s Since 1851 Ultra Body Mega Moisture Squalane Cream" loading="lazy">
+      <div class="info">
+        <span class="brand">Kiehl&#x27;s Since 1851</span>
+        <span class="name">Kiehl&#x27;s Since 1851 Ultra Body Mega Moisture Squalane Cream</span>
+        <span class="price">$49.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Highly Rated</span><span class="badge">Good for Dryness</span><span class="badge">Best for Dry Skin</span><span class="badge">Without Parabens</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/the-inkey-list-oat-cleansing-balm-P455364?skuId=2335636" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2335636-main-zoom.jpg?imwidth=930" alt="The INKEY List Oat Makeup Removing Cleansing Balm" loading="lazy">
+      <div class="info">
+        <span class="brand">The INKEY List</span>
+        <span class="name">The INKEY List Oat Makeup Removing Cleansing Balm</span>
+        <span class="price">$13.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Community Favorite</span><span class="badge">Allure 2020 Best of Beauty Award Winner</span><span class="badge">Best for Normal Skin</span><span class="badge">Vegan</span><span class="badge">Clean at Sephora</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/beste-no-9-jelly-cleanser-P426836?skuId=2022598" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2022598-main-zoom.jpg?imwidth=930" alt="Drunk Elephant Beste™ No. 9 Jelly Cleanser" loading="lazy">
+      <div class="info">
+        <span class="brand">Drunk Elephant</span>
+        <span class="name">Drunk Elephant Beste™ No. 9 Jelly Cleanser</span>
+        <span class="price">$36.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Vegan</span><span class="badge">Fragrance Free</span><span class="badge">Without Sulfates SLS &amp; SLES</span><span class="badge">Community Favorite</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/tower-28-sos-intensive-redness-relief-serum-with-hypochlorous-acid-P519533?skuId=2879856" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2879856-main-zoom.jpg?imwidth=930" alt="Tower 28 Beauty SOS Intensive Redness Relief Serum with Hypochlorous Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">Tower 28</span>
+        <span class="name">Tower 28 Beauty SOS Intensive Redness Relief Serum with Hypochlorous Acid</span>
+        <span class="price">$34.00 or $32.30 (5% off) with Auto-Replenish</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for: Redness</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Cruelty-Free</span><span class="badge">Fragrance Free</span><span class="badge">Clean at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/vinopure-discovery-set-P517646?skuId=2883122" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2883122-main-zoom.jpg?imwidth=930" alt="Caudalie Vinopure Acne-Prone Skin Essentials" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Vinopure Acne-Prone Skin Essentials</span>
+        <span class="price">$29.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/sunny-side-up-mineral-spf-30-sunscreen-P519103?skuId=2900132" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2900132-main-zoom.jpg?imwidth=315" alt="Sunny Side Up Hydrating Mineral Sunscreen, Broad Spectrum Protection SPF 30 PA+++" loading="lazy">
+      <div class="info">
+        <span class="brand">Sincerely Yours</span>
+        <span class="name">Sunny Side Up Hydrating Mineral Sunscreen, Broad Spectrum Protection SPF 30 PA+++</span>
+        <span class="price">$26.60 (5% off) ~~$28.00~~</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Best for Dry, Combo, Normal Skin</span><span class="badge">Non-Comedogenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/skin-mercy-calming-facial-cream-P519754?skuId=2925642" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2925642-main-zoom.jpg?imwidth=315" alt="Dieux Skin Mercy Intense Recovery Cream for Sensitive &amp; Eczema-Prone Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">Dieux</span>
+        <span class="name">Dieux Skin Mercy Intense Recovery Cream for Sensitive &amp; Eczema-Prone Skin</span>
+        <span class="price">$36.10</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Hypoallergenic</span><span class="badge">Fragrance Free</span><span class="badge">Non-Comedogenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/dr-dennis-gross-skincare-alpha-beta-r-on-spot-eliminator-2-salicylic-acid-acne-treatment-gel-P510546?skuId=2767754" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2767754-main-zoom.jpg?imwidth=930" alt="Dr. Dennis Gross Skincare Alpha Beta® On The Spot Eliminator 2% Salicylic Acid Acne Treatment Gel" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Dennis Gross Skincare</span>
+        <span class="name">Dr. Dennis Gross Skincare Alpha Beta® On The Spot Eliminator 2% Salicylic Acid Acne Treatment Gel</span>
+        <span class="price">$40.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Good for: Redness</span><span class="badge">Salicylic Acid</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/dr-jart-every-sun-day-mineral-sunscreen-spf-50-P457521?skuId=2344547" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2344547-main-zoom.jpg?imwidth=930" alt="Dr. Jart+ Every Sun Day™ Mineral Korean Sunscreen SPF 50+" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Jart+</span>
+        <span class="name">Dr. Jart+ Every Sun Day™ Mineral Korean Sunscreen SPF 50+</span>
+        <span class="price">$40.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">FSA/HSA Eligible</span><span class="badge">UV Protection</span><span class="badge">Mineral SPF</span><span class="badge">Zinc SPF</span><span class="badge">SPF</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/topicals-clearly-clarifying-calming-mist-for-acne-prone-skin-P514708?skuId=2879351" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2879351-main-zoom.jpg?imwidth=930" alt="Topicals Clearly Clarifying &amp; Calming Mist For Acne-Prone Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">Topicals</span>
+        <span class="name">Topicals Clearly Clarifying &amp; Calming Mist For Acne-Prone Skin</span>
+        <span class="price">$26.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">allure 2025 Best of Beauty Award Winner</span><span class="badge">FSA/HSA Eligible</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/hy-gen-skin-glass-energizing-hydrating-primer-serum-P500263?skuId=2569499" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2569499-main-zoom.jpg?imwidth=930" alt="NATASHA DENONA - HY-GEN - Energizing &amp; Hydrating Primer Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">NATASHA DENONA</span>
+        <span class="name">NATASHA DENONA - HY-GEN - Energizing &amp; Hydrating Primer Serum</span>
+        <span class="price">$48.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Paraben-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/tower-28-sunnydays-spf-30-tinted-sunscreen-foundation-P477829?skuId=2484533" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2484533-main-zoom.jpg?imwidth=930" alt="Tower 28 Beauty SunnyDays SPF 30 Tinted Sunscreen Foundation" loading="lazy">
+      <div class="info">
+        <span class="brand">Tower 28 Beauty</span>
+        <span class="name">Tower 28 Beauty SunnyDays SPF 30 Tinted Sunscreen Foundation</span>
+        <span class="price">$32.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Non-Comedogenic</span><span class="badge">Reef Safe SPF</span><span class="badge">Natural Finish</span><span class="badge">Good for: Acne/Blemishes</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/shani-darden-cleansing-serum-P455929?skuId=2757797" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2757797-main-zoom.jpg?imwidth=315" alt="Shani Darden Cleansing Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">Shani Darden Skin Care</span>
+        <span class="name">Shani Darden Cleansing Serum</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/face-cleanse-hydrating-cleanser-makeup-remover-P515019?skuId=2847549" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2847549-main-zoom.jpg?imwidth=930" alt="REFY Face Cleanse Hydrating Cleanser + Makeup Remover" loading="lazy">
+      <div class="info">
+        <span class="brand">REFY</span>
+        <span class="name">REFY Face Cleanse Hydrating Cleanser + Makeup Remover</span>
+        <span class="price">$34.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Alcohol Free</span><span class="badge">Fragrance Free</span><span class="badge">Liquid Formula</span><span class="badge">Good for: Dryness</span><span class="badge">Oil Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/then-i-met-you-living-cleansing-balm-makeup-remover-P514179?skuId=2828812" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2828812-main-zoom.jpg?imwidth=315" alt="Then I Met You Living Cleansing Balm Makeup Remover" loading="lazy">
+      <div class="info">
+        <span class="brand">Then I Met You</span>
+        <span class="name">Then I Met You Living Cleansing Balm Makeup Remover</span>
+        <span class="price">$39.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Allure 2019 Best of Beauty Award Winner</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Best for Dry, Combo, Normal Skin</span><span class="badge">Good for: Anti-Aging</span><span class="badge">Good for: Pores</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/peacekeeper-azaleic-salicylic-acid-acne-treatment-serum-P517688?skuId=2863934" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2863934-main-zoom.jpg?imwidth=930" alt="Sunday Riley Peacekeeper Azaleic and Salicylic Acid Acne Treatment Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">Sunday Riley</span>
+        <span class="name">Sunday Riley Peacekeeper Azaleic and Salicylic Acid Acne Treatment Serum</span>
+        <span class="price">$80.75</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Clean at Sephora</span><span class="badge">Good for: Skin Barrier</span><span class="badge">Good for: Redness</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Salicylic Acid</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/clean-clean-gentle-gel-foaming-cleanser-P514513?skuId=2836500" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2836500-main-zoom.jpg?imwidth=315" alt="Sofie Pavitt Face Clean Clean Gentle Gel Foaming Cleanser" loading="lazy">
+      <div class="info">
+        <span class="brand">Sofie Pavitt Face</span>
+        <span class="name">Sofie Pavitt Face Clean Clean Gentle Gel Foaming Cleanser</span>
+        <span class="price">$34.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Non-Comedogenic</span><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Oil Free</span><span class="badge">Fragrance Free</span><span class="badge">Clean at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/so-soft-daily-moisturizer-P519102?skuId=2900124" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2900124-main-zoom.jpg?imwidth=315" alt="Sincerely Yours So Soft Daily Barrier Strengthening Lightweight Moisturizer with Hyaluronic Acid, Ceramides and Niacinamide" loading="lazy">
+      <div class="info">
+        <span class="brand">Sincerely Yours</span>
+        <span class="name">Sincerely Yours So Soft Daily Barrier Strengthening Lightweight Moisturizer with Hyaluronic Acid, Ceramides and Niacinamide</span>
+        <span class="price">$26.00 (Save 5%)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Fragrance Free</span><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/sephora-collection-booster-face-mask-brighten-glow-P512821?skuId=2743284" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2743284-main-zoom.jpg?imwidth=315" alt="SEPHORA COLLECTION Booster Face Mask Brighten + Glow" loading="lazy">
+      <div class="info">
+        <span class="brand">SEPHORA COLLECTION</span>
+        <span class="name">SEPHORA COLLECTION Booster Face Mask Brighten + Glow</span>
+        <span class="price">$6.00</span>
+        <span class="rating">★★★★★</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-vinoclean-makeup-removing-cleansing-oil-P468637?skuId=2062503" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2062503-main-zoom.jpg?imwidth=315" alt="Caudalie Vinoclean Makeup Removing Cleansing Oil" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Vinoclean Makeup Removing Cleansing Oil</span>
+        <span class="price">$28.50 (5% off)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean + Planet Aware</span><span class="badge">Non-Comedogenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/shiseido-vital-perfection-uplifting-firming-advanced-cream-P510454?skuId=2742625" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2742625-main-zoom.jpg?imwidth=315" alt="Shiseido Vital Perfection Uplifting and Firming Advanced Cream" loading="lazy">
+      <div class="info">
+        <span class="brand">Shiseido</span>
+        <span class="name">Shiseido Vital Perfection Uplifting and Firming Advanced Cream</span>
+        <span class="price">$146.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/dewy-babies-P515370?skuId=2845055" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2845055-main-zoom.jpg?imwidth=315" alt="Glow Recipe Dewy Babies" loading="lazy">
+      <div class="info">
+        <span class="brand">Glow Recipe</span>
+        <span class="name">Glow Recipe Dewy Babies</span>
+        <span class="price">$35.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Clean + Planet Aware</span><span class="badge">Good for: Redness</span><span class="badge">Good for: Uneven Texture</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/watermelon-glow-niacinamide-dewy-flush-brightening-serum-blush-P515371?skuId=2914901" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2914901-main-zoom.jpg?imwidth=315" alt="Glow Recipe Watermelon Glow Niacinamide Dewy Flush - Brightening Serum Blush" loading="lazy">
+      <div class="info">
+        <span class="brand">Glow Recipe</span>
+        <span class="name">Glow Recipe Watermelon Glow Niacinamide Dewy Flush - Brightening Serum Blush</span>
+        <span class="price">$25.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Limited Edition</span><span class="badge">Only at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/salicylic-acid-acne-blackhead-cleanser-P443833?skuId=2211605" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2211605-main-zoom.jpg?imwidth=930" alt="The INKEY List Salicylic Acid Acne + Blackhead Cleanser" loading="lazy">
+      <div class="info">
+        <span class="brand">The INKEY List</span>
+        <span class="name">The INKEY List Salicylic Acid Acne + Blackhead Cleanser</span>
+        <span class="price">$14.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Clean at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/milky-jelly-gentle-gel-face-cleanser-P519350?skuId=2916617" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2916617-main-zoom.jpg?imwidth=315" alt="Glossier Milky Jelly Gentle Gel Face Cleanser" loading="lazy">
+      <div class="info">
+        <span class="brand">Glossier</span>
+        <span class="name">Glossier Milky Jelly Gentle Gel Face Cleanser</span>
+        <span class="price">$24.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Cruelty-Free</span><span class="badge">Vegan</span><span class="badge">Hydrating</span><span class="badge">Best for Dry, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/reverse-0-2-retinol-firming-serum-for-fine-lines-wrinkles-P516242?skuId=2853497" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2853497-main-zoom.jpg?imwidth=315" alt="Facile Reverse 0.2% Retinol Firming Serum for Fine Lines &amp; Wrinkles" loading="lazy">
+      <div class="info">
+        <span class="brand">Facile</span>
+        <span class="name">Facile Reverse 0.2% Retinol Firming Serum for Fine Lines &amp; Wrinkles</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Fragrance Free</span><span class="badge">Good for: Anti-Aging</span><span class="badge">Good for: Dark Spots</span><span class="badge">Good for: Loss of Firmness</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/mini-daily-microfoliant-exfoliator-P443352?skuId=2221133" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2221133-main-zoom.jpg?imwidth=930" alt="Dermalogica Mini Daily Microfoliant Exfoliator" loading="lazy">
+      <div class="info">
+        <span class="brand">Dermalogica</span>
+        <span class="name">Dermalogica Mini Daily Microfoliant Exfoliator</span>
+        <span class="price">$19.50</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for: Uneven Texture</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Allure 2024 Best of Beauty Award Winner</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/faded-brightening-clearing-serum-for-dark-spots-discoloration-P515090?skuId=2842755" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2842755-main-zoom.jpg?imwidth=930" alt="Topicals Faded Brightening Serum for Dark Spots and Discoloration (UNSCENTED)" loading="lazy">
+      <div class="info">
+        <span class="brand">Topicals</span>
+        <span class="name">Topicals Faded Brightening Serum for Dark Spots and Discoloration (UNSCENTED)</span>
+        <span class="price">$26.60 (Save 5%) ~~$28.00~~</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Black Owned at Sephora</span><span class="badge">Clean at Sephora</span><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/shani-darden-mini-triple-acid-signature-peel-P512166?skuId=2790210" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2790210-main-zoom.jpg?imwidth=930" alt="Shani Darden Skin Care Mini Triple Acid Signature Peel" loading="lazy">
+      <div class="info">
+        <span class="brand">Shani Darden Skin Care</span>
+        <span class="name">Shani Darden Skin Care Mini Triple Acid Signature Peel</span>
+        <span class="price">$39.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Allure 2023 Best of Beauty Award Winner</span><span class="badge">Black Owned at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/paula-s-choice-skin-perfecting-25-aha-2-bha-exfoliant-peel-P469528?skuId=2421386" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2421386-main-zoom.jpg?imwidth=930" alt="Paula&#x27;s Choice Skin Perfecting 25% AHA + 2% BHA Exfoliant Peel" loading="lazy">
+      <div class="info">
+        <span class="brand">Paula&#x27;s Choice</span>
+        <span class="name">Paula&#x27;s Choice Skin Perfecting 25% AHA + 2% BHA Exfoliant Peel</span>
+        <span class="price">$45.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Vegan</span><span class="badge">Allure 2021 Best of Beauty Award Winner</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/tower-28-lipsoftie-hydrating-tinted-lip-treatment-balm-P509397?skuId=2843068" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2843068-main-zoom.jpg?imwidth=930" alt="Tower 28 Beauty LipSoftie® Hydrating Tinted Lip Treatment Balm" loading="lazy">
+      <div class="info">
+        <span class="brand">Tower 28 Beauty</span>
+        <span class="name">Tower 28 Beauty LipSoftie® Hydrating Tinted Lip Treatment Balm</span>
+        <span class="price">$16.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Community Favorite</span><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/supergoop-unseen-sunscreen-invisible-broad-spectrum-spf-50-pa-P514631?skuId=2837938" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2837938-main-zoom.jpg?imwidth=930" alt="Supergoop! Unseen Sunscreen Invisible Broad Spectrum SPF 50 PA +++" loading="lazy">
+      <div class="info">
+        <span class="brand">Supergoop!</span>
+        <span class="name">Supergoop! Unseen Sunscreen Invisible Broad Spectrum SPF 50 PA +++</span>
+        <span class="price">$38.00 / $36.10 (with Auto-Replenish)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Best for Dry, Combo, Normal Skin</span><span class="badge">Non-Comedogenic</span><span class="badge">SPF</span><span class="badge">Cruelty-Free</span><span class="badge">Without Oxybenzone</span><span class="badge">Allure 2025 Best of Beauty Award Winner</span><span class="badge">Fragrance Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/mini-watermelon-glow-niacinamide-dew-drops-P504636?skuId=2640340" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2640340-main-zoom.jpg?imwidth=315" alt="Glow Recipe Mini Watermelon Glow Niacinamide Dew Drops" loading="lazy">
+      <div class="info">
+        <span class="brand">Glow Recipe</span>
+        <span class="name">Glow Recipe Mini Watermelon Glow Niacinamide Dew Drops</span>
+        <span class="price">$19.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Niacinamide</span><span class="badge">Community Favorite</span><span class="badge">High Shine Finish</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/fruit-babies-P515375?skuId=2845022#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2845022-main-zoom.jpg?imwidth=315" alt="Glow Recipe Fruit Babies Mini Best Sellers Set" loading="lazy">
+      <div class="info">
+        <span class="brand">Glow Recipe</span>
+        <span class="name">Glow Recipe Fruit Babies Mini Best Sellers Set</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/hydrating-dewy-gel-cream-moisturizer-with-hyaluronic-acid-ceramides-P514878?skuId=2830883#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2830883-main-zoom.jpg?imwidth=315" alt="First Aid Beauty Hydrating Dewy Gel Cream Moisturizer with Hyaluronic Acid + Ceramides" loading="lazy">
+      <div class="info">
+        <span class="brand">First Aid Beauty</span>
+        <span class="name">First Aid Beauty Hydrating Dewy Gel Cream Moisturizer with Hyaluronic Acid + Ceramides</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Good for: Skin Barrier</span><span class="badge">Non-Comedogenic</span><span class="badge">Hyaluronic Acid</span><span class="badge">Fragrance Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/winter-skincare-survival-gift-set-P518244?skuId=2887420" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2887420-main-zoom.jpg?imwidth=315" alt="Kiehl&#x27;s Since 1851 Winter Skincare Survival Gift Set" loading="lazy">
+      <div class="info">
+        <span class="brand">Kiehl&#x27;s Since 1851</span>
+        <span class="name">Kiehl&#x27;s Since 1851 Winter Skincare Survival Gift Set</span>
+        <span class="price">$48.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Limited Edition</span><span class="badge">Good for: Skin Barrier</span><span class="badge">Vegan</span><span class="badge">Gluten-Free</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/moisture-surge-tm-active-glow-serum-with-hyaluronic-acid-P515919?skuId=2836203" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2836203-main-zoom.jpg?imwidth=930" alt="CLINIQUE Moisture Surge™ Active Glow Serum with Hyaluronic Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">CLINIQUE</span>
+        <span class="name">CLINIQUE Moisture Surge™ Active Glow Serum with Hyaluronic Acid</span>
+        <span class="price">$65.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Best for Dry Skin</span><span class="badge">Fragrance Free</span><span class="badge">Oil Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/milky-jelly-cleansing-balm-makeup-remover-P516254?skuId=2839413" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2839413-main-zoom.jpg?imwidth=930" alt="Glossier Milky Jelly Cleansing Balm &amp; Makeup Remover" loading="lazy">
+      <div class="info">
+        <span class="brand">Glossier</span>
+        <span class="name">Glossier Milky Jelly Cleansing Balm &amp; Makeup Remover</span>
+        <span class="price">$24.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Best for Oily, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/the-ordinary-balancing-clarifying-serum-for-blemish-prone-skin-P511984?skuId=2768075" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2768075-main-zoom.jpg?imwidth=315" alt="The Ordinary Balancing &amp; Clarifying Serum for Oily Skin and Pore Refinement" loading="lazy">
+      <div class="info">
+        <span class="brand">The Ordinary</span>
+        <span class="name">The Ordinary Balancing &amp; Clarifying Serum for Oily Skin and Pore Refinement</span>
+        <span class="price">$19.90</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for Pores</span><span class="badge">Fragrance Free</span><span class="badge">Best for Oily Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/farmacy-apple-lip-smoothie-vitamin-c-peptide-lip-balm-P505757?skuId=2674281" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2674281-main-zoom.jpg?imwidth=930" alt="Farmacy Lip Smoothie Vitamin C + Peptide Lip Balm" loading="lazy">
+      <div class="info">
+        <span class="brand">Farmacy</span>
+        <span class="name">Farmacy Lip Smoothie Vitamin C + Peptide Lip Balm</span>
+        <span class="price">$22.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Good for: Uneven Texture</span><span class="badge">Plumping</span><span class="badge">Cruelty-Free</span><span class="badge">Hydrating</span><span class="badge">Best for Dry Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/fenty-skin-fat-water-pore-refining-toner-serum-P467248?skuId=2418861" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2418861-main-zoom.jpg?imwidth=930" alt="Fenty Beauty by Rihanna Fat Water Niacinamide Pore-Refining Toner Serum with Barbados Cherry" loading="lazy">
+      <div class="info">
+        <span class="brand">Fenty Beauty by Rihanna</span>
+        <span class="name">Fenty Beauty by Rihanna Fat Water Niacinamide Pore-Refining Toner Serum with Barbados Cherry</span>
+        <span class="price">$34.20 (5% off)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Alcohol Free</span><span class="badge">Black Owned at Sephora</span><span class="badge">Vegan</span><span class="badge">Clean at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/green-tea-caffeine-bright-eye-serum-P507478?skuId=2740561" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2740561-main-zoom.jpg?imwidth=930" alt="innisfree Green Tea Caffeine Eye Serum For Hydration &amp; Puffiness" loading="lazy">
+      <div class="info">
+        <span class="brand">innisfree</span>
+        <span class="name">innisfree Green Tea Caffeine Eye Serum For Hydration &amp; Puffiness</span>
+        <span class="price">$22.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Alcohol Free</span><span class="badge">Vegan</span><span class="badge">Fragrance Free</span><span class="badge">Cruelty-Free</span><span class="badge">Good for: Dark Circles</span><span class="badge">Best for Dry, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/murad-vitamin-c-triple-exfoliating-facial-P470227?skuId=2453421" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2453421-main-zoom.jpg?imwidth=930" alt="Murad Vitamin C Triple Exfoliating Facial" loading="lazy">
+      <div class="info">
+        <span class="brand">Murad</span>
+        <span class="name">Murad Vitamin C Triple Exfoliating Facial</span>
+        <span class="price">$92.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Vegan</span><span class="badge">Without Sulfates SLS &amp; SLES</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/wetforce-clear-stick-uv-protector-broad-spectrum-50-P429242?skuId=2435261#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2435261-main-zoom.jpg?imwidth=315" alt="Shiseido Clear Sunscreen Stick SPF 50" loading="lazy">
+      <div class="info">
+        <span class="brand">Shiseido</span>
+        <span class="name">Shiseido Clear Sunscreen Stick SPF 50</span>
+        <span class="price">$33.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">allure 2021 Best of Beauty Award Winner</span><span class="badge">SPF</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/resist-barrier-repair-advanced-moisturizer-with-ceramides-P508528?skuId=2713808" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2713808-main-zoom.jpg?imwidth=315" alt="Paula&#x27;s Choice RESIST Barrier Repair Advanced Moisturizer with Ceramides" loading="lazy">
+      <div class="info">
+        <span class="brand">Paula&#x27;s Choice</span>
+        <span class="name">Paula&#x27;s Choice RESIST Barrier Repair Advanced Moisturizer with Ceramides</span>
+        <span class="price">$39.90 (Save 5%)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Fragrance Free</span><span class="badge">Cruelty Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/estee-lauder-advanced-night-repair-overnight-skin-treatment-P512519?skuId=2790186" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2790186-main-zoom.jpg?imwidth=315" alt="Estée Lauder Advanced Night Repair Overnight Skin Treatment" loading="lazy">
+      <div class="info">
+        <span class="brand">Estée Lauder</span>
+        <span class="name">Estée Lauder Advanced Night Repair Overnight Skin Treatment</span>
+        <span class="price">$98.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Without Sulfates SLS &amp; SLES</span><span class="badge">Good for: Skin Barrier</span><span class="badge">Non-Comedogenic</span><span class="badge">Good for: Dryness</span><span class="badge">Fragrance Free</span><span class="badge">Peptide</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/kora-organics-turmeric-invigorating-body-scrub-P502630?skuId=2600286" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2600286-main-zoom.jpg?imwidth=315" alt="KORA Organics Turmeric Invigorating Body Scrub" loading="lazy">
+      <div class="info">
+        <span class="brand">KORA Organics</span>
+        <span class="name">KORA Organics Turmeric Invigorating Body Scrub</span>
+        <span class="price">$64.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean at Sephora</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/100-organic-cold-pressed-moroccan-argan-oil-P447596?skuId=2267540" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2267540-main-zoom.jpg?imwidth=315" alt="The Ordinary 100% Organic Cold-Pressed Moroccan Argan Oil for Skin &amp; Hair" loading="lazy">
+      <div class="info">
+        <span class="brand">The Ordinary</span>
+        <span class="name">The Ordinary 100% Organic Cold-Pressed Moroccan Argan Oil for Skin &amp; Hair</span>
+        <span class="price">$7.80</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Without Sulfates SLS &amp; SLES</span><span class="badge">Best for Dry Skin</span><span class="badge">Without Parabens</span><span class="badge">Gluten Free</span><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/100-squalane-oil-P416564?skuId=2051944" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2051944-main-zoom.jpg?imwidth=315" alt="Biossance 100% Sugarcane Squalane Oil" loading="lazy">
+      <div class="info">
+        <span class="brand">Biossance</span>
+        <span class="name">Biossance 100% Sugarcane Squalane Oil</span>
+        <span class="price">$34.00 or $32.30 with Auto-Replenish (5% off)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean + Planet Aware</span><span class="badge">Fragrance Free</span><span class="badge">Cruelty-Free</span><span class="badge">Best for Dry, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/24k-gold-2-piece-mini-brightening-and-anti-aging-skincare-set-P518271?skuId=2905685" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2905685-main-zoom.jpg?imwidth=315" alt="Peter Thomas Roth 24K Gold 2-Piece Mini Brightening &amp; Anti-Aging Skincare Set" loading="lazy">
+      <div class="info">
+        <span class="brand">Peter Thomas Roth</span>
+        <span class="name">Peter Thomas Roth 24K Gold 2-Piece Mini Brightening &amp; Anti-Aging Skincare Set</span>
+        <span class="price">$27.30</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Limited Edition</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/7-day-scrub-cream-rinse-off-formula-P122661?skuId=47936#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s47936-main-zoom.jpg?imwidth=315" alt="CLINIQUE 7 Day Gentle Face Scrub Cream Exfoliator" loading="lazy">
+      <div class="info">
+        <span class="brand">CLINIQUE</span>
+        <span class="name">CLINIQUE 7 Day Gentle Face Scrub Cream Exfoliator</span>
+        <span class="price">$29.00</span>
+        <span class="rating">★★★★★</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/advanced-night-repair-supercharged-eye-gel-cream-P500701?skuId=2532976#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2532976-main-zoom.jpg?imwidth=315" alt="Estée Lauder Advanced Night Repair Eye Supercharged Gel Eye Cream with Hyaluronic Acid and Vitamin E" loading="lazy">
+      <div class="info">
+        <span class="brand">Estée Lauder</span>
+        <span class="name">Estée Lauder Advanced Night Repair Eye Supercharged Gel Eye Cream with Hyaluronic Acid and Vitamin E</span>
+        <span class="price">$76.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Hydrating</span><span class="badge">Good for: Dark Circles</span><span class="badge">Good for: Anti-Aging</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/afterglow-lip-balm-P519765?skuId=2927325#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2927325-main-zoom.jpg?imwidth=315" alt="NARS Afterglow Moisturizing Lip Balm with Hyaluronic Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">NARS</span>
+        <span class="name">NARS Afterglow Moisturizing Lip Balm with Hyaluronic Acid</span>
+        <span class="price">$30.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Hydrating</span><span class="badge">Good for: Dryness</span><span class="badge">Without Parabens</span><span class="badge">Without Sulfates SLS &amp; SLES</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/alpha-beta-peel-extra-strength-daily-peel-P269122?skuId=1499482#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1499482-main-zoom.jpg?imwidth=315" alt="Dr. Dennis Gross Alpha Beta® Extra Strength Daily Peel Pads" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Dennis Gross</span>
+        <span class="name">Dr. Dennis Gross Alpha Beta® Extra Strength Daily Peel Pads</span>
+        <span class="price">$92.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/alpha-beta-r-universal-daily-peel-mini-P425869?skuId=1450964#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1450964-main-zoom.jpg?imwidth=930" alt="Dr. Dennis Gross Skincare Mini Alpha Beta® Universal Daily Peel Pads" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Dennis Gross Skincare</span>
+        <span class="name">Dr. Dennis Gross Skincare Mini Alpha Beta® Universal Daily Peel Pads</span>
+        <span class="price">$20.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/alpha-beta-ultra-gentle-daily-peel-sensitive-skin-P398761?skuId=1722487" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1722487-main-zoom.jpg?imwidth=315" alt="Dr. Dennis Gross Alpha Beta® Ultra Gentle Daily Peel Pads for Sensitive Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">Dr. Dennis Gross</span>
+        <span class="name">Dr. Dennis Gross Alpha Beta® Ultra Gentle Daily Peel Pads for Sensitive Skin</span>
+        <span class="price">$92.00</span>
+        <span class="rating">★★★★★</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/alpyn-beauty-pore-perfecting-liquid-with-2-bha-borage-P505338?skuId=2646446#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2646446-main-zoom.jpg?imwidth=315" alt="ALPYN 2% BHA Pore Perfecting Liquid Exfoliator for Brighter &amp; Clearer Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">ALPYN</span>
+        <span class="name">ALPYN 2% BHA Pore Perfecting Liquid Exfoliator for Brighter &amp; Clearer Skin</span>
+        <span class="price">$39.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Good for: Acne/Blemishes</span><span class="badge">Best for Oily, Combo, Normal Skin</span><span class="badge">Good for: Pores</span><span class="badge">allure 2023 Clean Beauty Winner</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/always-an-optimist-4-in-1-mist-mini-P501035?skuId=2589372" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2589372-main-zoom.jpg?imwidth=315" alt="Rare Beauty by Selena Gomez Mini Always an Optimist 4-in-1 Mist" loading="lazy">
+      <div class="info">
+        <span class="brand">Rare Beauty</span>
+        <span class="name">Rare Beauty by Selena Gomez Mini Always an Optimist 4-in-1 Mist</span>
+        <span class="price">$15.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Without Parabens</span><span class="badge">Radiant Finish</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/argan-sun-milk-mineral-sunscreen-broad-spectrum-spf-33-travel-size-P520430?skuId=2936599" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2936599-main-zoom.jpg?imwidth=315" alt="Josie Maran Argan Sun Milk Mineral Sunscreen Broad Spectrum SPF 33 Moisturizer Mini" loading="lazy">
+      <div class="info">
+        <span class="brand">Josie Maran</span>
+        <span class="name">Josie Maran Argan Sun Milk Mineral Sunscreen Broad Spectrum SPF 33 Moisturizer Mini</span>
+        <span class="price">$17.00</span>
+        <span class="rating">☆☆☆☆☆</span>
+        <div class="badges"><span class="badge">Clean + Planet Aware</span><span class="badge">Good for: Anti-Aging</span><span class="badge">Good for: Dryness</span><span class="badge">Without Oxybenzone</span><span class="badge">Reef Safe SPF</span><span class="badge">Vitamin C</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/atobarrier365-lightweight-face-lotion-with-ceramides-niacinamide-for-skin-moisture-barrier-repair-P515497?skuId=2844926" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2844926-main-zoom.jpg?imwidth=930" alt="AESTURA ATOBARRIER365 Lightweight Face Lotion Moisturizer with Ceramides &amp; Niacinamide for Skin Moisture Barrier Repair" loading="lazy">
+      <div class="info">
+        <span class="brand">AESTURA</span>
+        <span class="name">AESTURA ATOBARRIER365 Lightweight Face Lotion Moisturizer with Ceramides &amp; Niacinamide for Skin Moisture Barrier Repair</span>
+        <span class="price">$30.40</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Hypoallergenic</span><span class="badge">Vegan</span><span class="badge">Allure 2024 Best of Beauty Award Winner</span><span class="badge">Best for Dry, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/atobarrier365-mini-best-sellers-kit-P515514?skuId=2844918" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2844918-main-zoom.jpg?imwidth=930" alt="AESTURA ATOBARRIER365 Mini Hydrating Best Sellers Kit" loading="lazy">
+      <div class="info">
+        <span class="brand">AESTURA</span>
+        <span class="name">AESTURA ATOBARRIER365 Mini Hydrating Best Sellers Kit</span>
+        <span class="price">$32.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Best Seller</span><span class="badge">Vegan</span><span class="badge">Hypoallergenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/b-hydra-intensive-hydration-gel-P406712?skuId=1785856#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1785856-main-zoom.jpg?imwidth=315" alt="Drunk Elephant B-Hydra™ Intensive Hydration Serum with Hyaluronic Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">Drunk Elephant</span>
+        <span class="name">Drunk Elephant B-Hydra™ Intensive Hydration Serum with Hyaluronic Acid</span>
+        <span class="price">$54.00 or $51.30 (5% off) with Auto-Replenish</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/balanceful-peeling-toner-P517699?skuId=2896975" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2896975-main-zoom.jpg?imwidth=315" alt="Torriden BALANCEFUL 5D Cica Complex AHA Pore Refining Toner for Clear, Smooth Skin" loading="lazy">
+      <div class="info">
+        <span class="brand">Torriden</span>
+        <span class="name">Torriden BALANCEFUL 5D Cica Complex AHA Pore Refining Toner for Clear, Smooth Skin</span>
+        <span class="price">$27.00</span>
+        <span class="rating">☆☆☆☆☆</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/barrier-antioxidant-treatment-with-bakuchiol-squalane-P506940?skuId=2694776#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2694776-main-zoom.jpg?imwidth=315" alt="MATTER OF FACT BARRIER + ANTIOXIDANT TREATMENT with Bakuchiol &amp; Squalane" loading="lazy">
+      <div class="info">
+        <span class="brand">MATTER OF FACT</span>
+        <span class="name">MATTER OF FACT BARRIER + ANTIOXIDANT TREATMENT with Bakuchiol &amp; Squalane</span>
+        <span class="price">$76.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Fragrance Free</span><span class="badge">Hydrating</span><span class="badge">Good for: Dryness</span><span class="badge">Good for: Uneven Texture</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/barrier-butter-P517524?skuId=2896017" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2896017-main-zoom.jpg?imwidth=315" alt="Barrier Butter Intensive Moisture Balm" loading="lazy">
+      <div class="info">
+        <span class="brand">rhode</span>
+        <span class="name">Barrier Butter Intensive Moisture Balm</span>
+        <span class="price">$36.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Gluten Free</span><span class="badge">Non-Comedogenic</span><span class="badge">Fragrance Free</span><span class="badge">Good for: Dryness</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/barrier-foaming-oil-cleanser-P442836?skuId=2215929#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2215929-main-zoom.jpg?imwidth=315" alt="Skinfix Hydrating Foaming Oil Cleanser with Hyaluronic Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">Skinfix</span>
+        <span class="name">Skinfix Hydrating Foaming Oil Cleanser with Hyaluronic Acid</span>
+        <span class="price">$28.50 (5% off)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Gluten Free</span><span class="badge">Vegan</span><span class="badge">Hydrating</span><span class="badge">Fragrance Free</span><span class="badge">Allure 2018 Best of Beauty Award Winner</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/beard-oil-P399986?skuId=1742659" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1742659-main-zoom.jpg?imwidth=315" alt="Jack Black Beard Oil" loading="lazy">
+      <div class="info">
+        <span class="brand">Jack Black</span>
+        <span class="name">Jack Black Beard Oil</span>
+        <span class="price">$28.00 or $26.60 with Auto-Replenish (5% off)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Fragrance Free</span><span class="badge">Alcohol Free</span><span class="badge">Hydrating</span><span class="badge">Without Parabens</span><span class="badge">Gluten Free</span><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/beauty-of-joseon-calming-serum-P519334?skuId=2918076" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2918076-main-zoom.jpg?imwidth=315" alt="Beauty of Joseon Calming Barrier Serum" loading="lazy">
+      <div class="info">
+        <span class="brand">Beauty of Joseon</span>
+        <span class="name">Beauty of Joseon Calming Barrier Serum</span>
+        <span class="price">$16.15</span>
+        <span class="rating">★★★★★</span>
+        
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/beautybio-get-that-glow-glopro-reg-facial-microneedling-discovery-set-P477961?skuId=2527596#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2527596-main-zoom.jpg?imwidth=315" alt="BeautyBio Get That Glow - GloPRO® Microneedling Tool &amp; Discovery Set" loading="lazy">
+      <div class="info">
+        <span class="brand">BeautyBio</span>
+        <span class="name">BeautyBio Get That Glow - GloPRO® Microneedling Tool &amp; Discovery Set</span>
+        <span class="price">$169.15</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Award Winner</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/benefiance-wrinkle-smoothing-eye-cream-P448203?skuId=2698488#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2698488-main-zoom.jpg?imwidth=315" alt="Shiseido Benefiance Wrinkle Smoothing Eye Cream" loading="lazy">
+      <div class="info">
+        <span class="brand">Shiseido</span>
+        <span class="name">Shiseido Benefiance Wrinkle Smoothing Eye Cream</span>
+        <span class="price">$67.00 or $63.65 with Auto-Replenish</span>
+        <span class="rating">★★★☆☆</span>
+        <div class="badges"><span class="badge">Highly rated</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/biossance-rapid-radiance-set-P480278?skuId=2555084#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2555084-main-zoom.jpg?imwidth=315" alt="Biossance Rapid Radiance Set" loading="lazy">
+      <div class="info">
+        <span class="brand">Biossance</span>
+        <span class="name">Biossance Rapid Radiance Set</span>
+        <span class="price">$39.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Without Parabens</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/black-tea-firming-overnight-mask-P391799?skuId=2881977" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2881977-main-zoom.jpg?imwidth=315" alt="Fresh Black Tea Firming Overnight Mask" loading="lazy">
+      <div class="info">
+        <span class="brand">Fresh</span>
+        <span class="name">Fresh Black Tea Firming Overnight Mask</span>
+        <span class="price">$98.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Clean at Sephora</span><span class="badge">Good for: Anti-Aging</span><span class="badge">Good for: Loss of firmness</span><span class="badge">Without Sulfates SLS &amp; SLES</span><span class="badge">Non-Comedogenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/bom-dia-jet-set-P509328?skuId=2742112" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2742112-main-zoom.jpg?imwidth=315" alt="Sol de Janeiro Bom Dia Bright™ Jet Set" loading="lazy">
+      <div class="info">
+        <span class="brand">Sol de Janeiro</span>
+        <span class="name">Sol de Janeiro Bom Dia Bright™ Jet Set</span>
+        <span class="price">$34.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for: Dark spots</span><span class="badge">Floral Scent</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/bouncy-firm-radiance-boosting-serum-w-peony-collagen-complextm-P515338?skuId=2842508" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2842508-main-zoom.jpg?imwidth=315" alt="LANEIGE Bouncy &amp; Firm Radiance Boosting Serum with Peony &amp; Collagen Complex™" loading="lazy">
+      <div class="info">
+        <span class="brand">LANEIGE</span>
+        <span class="name">LANEIGE Bouncy &amp; Firm Radiance Boosting Serum with Peony &amp; Collagen Complex™</span>
+        <span class="price">$45.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/brazilian-kiss-cupua-u-lip-butter-P415747?skuId=2879245" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2879245-main-zoom.jpg?imwidth=315" alt="Sol de Janeiro Brazilian Kiss Cupuaçu Lip Butter" loading="lazy">
+      <div class="info">
+        <span class="brand">Sol de Janeiro</span>
+        <span class="name">Sol de Janeiro Brazilian Kiss Cupuaçu Lip Butter</span>
+        <span class="price">$17.10 (Save 5%)</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Cruelty-Free</span><span class="badge">Without Parabens</span><span class="badge">Good for: Dryness</span><span class="badge">Natural Finish</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/brighten-glow-rad-pads-P520328?skuId=2940187" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2940187-main-zoom.jpg?imwidth=315" alt="First Aid Beauty Brighten + Glow Facial Radiance Pads with Glycolic + Lactic Acids" loading="lazy">
+      <div class="info">
+        <span class="brand">First Aid Beauty</span>
+        <span class="name">First Aid Beauty Brighten + Glow Facial Radiance Pads with Glycolic + Lactic Acids</span>
+        <span class="price">$56.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/brightening-derm-revival-mask-P375864?skuId=1448422" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1448422-main-zoom.jpg?imwidth=315" alt="SK-II Brightening Derm Revival Mask" loading="lazy">
+      <div class="info">
+        <span class="brand">SK-II</span>
+        <span class="name">SK-II Brightening Derm Revival Mask</span>
+        <span class="price">$161.50 (Save 5%)</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Bestseller</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/c-e-o-glow-vitamin-c-turmeric-face-oil-P442761?skuId=2213528" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2213528-main-zoom.jpg?imwidth=315" alt="Sunday Riley C.E.O Glow Vitamin C + Turmeric Face Oil" loading="lazy">
+      <div class="info">
+        <span class="brand">Sunday Riley</span>
+        <span class="name">Sunday Riley C.E.O Glow Vitamin C + Turmeric Face Oil</span>
+        <span class="price">$76.00 (Save 5%)</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Good for: Redness</span><span class="badge">Good for: Dark Circles</span><span class="badge">Good for: Uneven Texture</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/canopy-handheld-filtered-showerhead-for-healthy-skin-hair-P513237?skuId=2798809#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2798809-main-zoom.jpg?imwidth=315" alt="CANOPY Handheld Filtered Showerhead for Healthy Skin &amp; Hair" loading="lazy">
+      <div class="info">
+        <span class="brand">CANOPY</span>
+        <span class="name">CANOPY Handheld Filtered Showerhead for Healthy Skin &amp; Hair</span>
+        <span class="price">$150.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Highly Rated</span><span class="badge">Easy Installation</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-grape-water-moisturizing-face-mist-P503655?skuId=1434190" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1434190-main-zoom.jpg?imwidth=930" alt="Caudalie Mini Grape Water Moisturizing Face Mist" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Mini Grape Water Moisturizing Face Mist</span>
+        <span class="price">$12.00</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Hydrating</span><span class="badge">Best for Dry Skin</span><span class="badge">Good for: Dryness</span><span class="badge">Vegan</span><span class="badge">Good for: Redness</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-premier-cru-anti-aging-rich-moisturizer-P503657?skuId=2838258" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2838258-main-zoom.jpg?imwidth=315" alt="Caudalie Premier Cru Skin Barrier Rich Refillable Moisturizer with Bio-Ceramides" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Premier Cru Skin Barrier Rich Refillable Moisturizer with Bio-Ceramides</span>
+        <span class="price">$119.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Gluten-Free</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-premier-cru-anti-aging-serum-P480284?skuId=2838266" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2838266-main-zoom.jpg?imwidth=315" alt="Caudalie Premier Cru Anti-Aging Serum with Niacinamide and Hyaluronic Acid" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Premier Cru Anti-Aging Serum with Niacinamide and Hyaluronic Acid</span>
+        <span class="price">$129.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Cruelty-Free</span><span class="badge">Clean + Planet Aware</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-vinoclean-moisturizing-toner-rose-water-P468813?skuId=2421113" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2421113-main-zoom.jpg?imwidth=315" alt="Caudalie Vinoclean Moisturizing Toner with Rose Water" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Vinoclean Moisturizing Toner with Rose Water</span>
+        <span class="price">$30.00 or $28.50 (5% off) with Auto-Replenish</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Alcohol Free</span><span class="badge">Clean + Planet Aware</span><span class="badge">Good for: Dryness</span><span class="badge">Vegan</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-vinohydra-deep-hydration-moisturizer-P511726?skuId=2947448" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2947448-main-zoom.jpg?imwidth=315" alt="Caudalie VinoHydra Deep Hydration Moisturizer" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie VinoHydra Deep Hydration Moisturizer</span>
+        <span class="price">$38.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean + Planet Aware</span><span class="badge">Best for Dry Skin</span><span class="badge">Non-Comedogenic</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/caudalie-vinoperfect-brightening-daily-aha-micropeel-P510567?skuId=2744241" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2744241-main-zoom.jpg?imwidth=315" alt="Caudalie Vinoperfect Brightening Daily AHA Micropeel" loading="lazy">
+      <div class="info">
+        <span class="brand">Caudalie</span>
+        <span class="name">Caudalie Vinoperfect Brightening Daily AHA Micropeel</span>
+        <span class="price">$30.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Clean + Planet Aware</span><span class="badge">Vegan</span><span class="badge">AHA/Glycolic Acid</span><span class="badge">Without Silicones</span><span class="badge">Good for: Dark spots</span><span class="badge">Good for: Uneven Texture</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/celestial-nightly-skin-repair-oil-serum-for-firming-hydrating-restoring-kakadu-plum-P516804?skuId=2881571" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2881571-main-zoom.jpg?imwidth=930" alt="Katini Skin Celestial Nightly Skin Repair Oil Serum for Firming, Hydrating and Restoring + Kakadu Plum" loading="lazy">
+      <div class="info">
+        <span class="brand">Katini Skin</span>
+        <span class="name">Katini Skin Celestial Nightly Skin Repair Oil Serum for Firming, Hydrating and Restoring + Kakadu Plum</span>
+        <span class="price">$65.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Clean at Sephora</span><span class="badge">Black Owned at Sephora</span><span class="badge">Good for: Loss of firmness</span><span class="badge">Best for Dry, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/clarins-double-serum-anti-aging-to-firm-boost-radiance-refine-pores-P513530?skuId=2802130" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2802130-main-zoom.jpg?imwidth=315" alt="Clarins DOUBLE SERUM® To Firm, Boost Radiance &amp; Refine Pores" loading="lazy">
+      <div class="info">
+        <span class="brand">Clarins</span>
+        <span class="name">Clarins DOUBLE SERUM® To Firm, Boost Radiance &amp; Refine Pores</span>
+        <span class="price">$133.00 (Save 5%)</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Bestseller</span><span class="badge">Clean</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/clarins-extra-firming-neck-P456194?skuId=2340297#ratings-reviews-container" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2340297-main-zoom.jpg?imwidth=315" alt="Clarins Extra-Firming + Smoothing Neck &amp; Décolleté Moisturizer" loading="lazy">
+      <div class="info">
+        <span class="brand">Clarins</span>
+        <span class="name">Clarins Extra-Firming + Smoothing Neck &amp; Décolleté Moisturizer</span>
+        <span class="price">$98.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Anti-Aging</span><span class="badge">Without Parabens</span><span class="badge">Without Sulfates SLS &amp; SLES</span><span class="badge">Good for: Loss of firmness</span><span class="badge">Good for: Dark spots</span><span class="badge">Good for: Uneven Texture</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/cleansing-softening-shower-oil-with-almond-oil-P107319?skuId=763706" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s763706-main-zoom.jpg?imwidth=315" alt="L&#x27;Occitane Cleansing And Softening Refillable Shower Oil With Almond Oil" loading="lazy">
+      <div class="info">
+        <span class="brand">L&#x27;Occitane</span>
+        <span class="name">L&#x27;Occitane Cleansing And Softening Refillable Shower Oil With Almond Oil</span>
+        <span class="price">$27.55 (Save 5%)</span>
+        <span class="rating">★★★★☆</span>
+        <div class="badges"><span class="badge">Refill Available</span><span class="badge">Without Phthalates</span><span class="badge">Good for: Dryness</span><span class="badge">Vegan</span><span class="badge">Without Parabens</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/clear-improvement-active-charcoal-mask-to-clear-pores-P297524?skuId=2175370" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s2175370-main-zoom.jpg?imwidth=315" alt="Origins Clear Improvement™ Active Charcoal Face Mask to Clear Pores" loading="lazy">
+      <div class="info">
+        <span class="brand">Origins</span>
+        <span class="name">Origins Clear Improvement™ Active Charcoal Face Mask to Clear Pores</span>
+        <span class="price">$36.00</span>
+        <span class="rating">★★★★★</span>
+        <div class="badges"><span class="badge">Vegan</span><span class="badge">Good for: Pores</span><span class="badge">Best for Oily, Combo, Normal Skin</span></div>
+      </div>
+    </a>
+  
+    <a href="https://www.sephora.com/product/clearly-corrective-dark-spot-solution-P422022?skuId=1989474" class="product" target="_blank" rel="noopener noreferrer">
+      <img class="product-image" src="https://www.sephora.com/productimages/sku/s1989474-main-zoom.jpg?imwidth=315" alt="Kiehl&#x27;s Since 1851 Clearly Corrective™ Dark Spot Correcting Serum with Vitamin C" loading="lazy">
+      <div class="info">
+        <span class="brand">Kiehl&#x27;s</span>
+        <span class="name">Kiehl&#x27;s Since 1851 Clearly Corrective™ Dark Spot Correcting Serum with Vitamin C</span>
+        <span class="price">$65.00</span>
+        <span class="rating">★★★★☆</span>
+        
+      </div>
+    </a>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-card">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span></span>
+          <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div class="modal-info">
+          <div class="modal-brand" id="modalBrand"></div>
+          <div class="modal-name" id="modalName"></div>
+          <div class="modal-price" id="modalPrice"></div>
+          <div class="modal-rating" id="modalRating"></div>
+          <div class="modal-badges" id="modalBadges"></div>
+          <div class="modal-reviews">
+            <div class="modal-reviews-title">What similar users (skin type, age) are saying:</div>
+            <div class="suni-summary">
+              <div class="suni-summary-title"><img src="suni_avatar.png" alt="Suni" class="suni-summary-avatar">Suni's take</div>
+              <div class="suni-summary-text">Perfect for your first NYC winter! Other Asian women in their mid-20s with oily skin love that this hydrates without adding greasiness—key when your skin is already producing oil but the dry cold is causing flakiness. Absorbs fast, won't clog pores, and works great layered under SPF. Ideal for balancing that tricky combo of heated apartments and freezing outdoor air.</div>
+            </div>
+            <div class="reviews-list-title">Top reviews</div>
+            <div class="modal-review">"This has been a game-changer for my combination skin! I'm 28 and was struggling with dry patches and oiliness at the same time. After 3 weeks of use, my skin feels so much more balanced."</div>
+            <div class="modal-review">"Finally found something that works for sensitive skin in my 30s. No irritation and my pores look smaller. Would definitely repurchase!"</div>
+            <div class="modal-review">"I was skeptical but this actually works. My skin looks glowy without being greasy. Perfect for my oily T-zone situation."</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <a class="modal-btn modal-btn-primary" id="modalLink" href="" target="_blank">View on Sephora</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Video paths
+    const videos = [
+      'skincare_videos/video1.MOV',
+      'skincare_videos/video2.MOV',
+      'skincare_videos/video3.MOV'
+    ];
+
+    // Randomly place video cards (25% chance per row, 50/50 column)
+    const allProducts = document.querySelectorAll('.product');
+    const videoIndices = [];
+    const numRows = Math.ceil(allProducts.length / 2);
+    
+    for (let row = 0; row < numRows; row++) {
+      // 50% chance this row gets a video
+      if (Math.random() < 0.50) {
+        // 50/50 which column
+        const column = Math.random() < 0.5 ? 0 : 1;
+        const index = row * 2 + column;
+        if (index < allProducts.length) {
+          videoIndices.push(index);
+        }
+      }
+    }
+    
+    let videoCounter = 0;
+    videoIndices.forEach(index => {
+      const product = allProducts[index];
+      const productName = product.querySelector('.name')?.textContent || '';
+      const videoSrc = videos[videoCounter % videos.length];
+      videoCounter++;
+      
+      // Mark as video card
+      product.classList.add('video-card');
+      
+      // Create video container
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'product-video-container';
+      
+      const video = document.createElement('video');
+      video.className = 'product-video';
+      video.src = videoSrc;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      
+      const overlay = document.createElement('div');
+      overlay.className = 'product-video-overlay';
+      
+      const nameText = document.createElement('div');
+      nameText.className = 'product-video-name';
+      nameText.textContent = productName;
+      
+      overlay.appendChild(nameText);
+      videoContainer.appendChild(video);
+      videoContainer.appendChild(overlay);
+      
+      // Insert at the beginning of the product
+      product.insertBefore(videoContainer, product.firstChild);
+      
+      // Store product data in data attributes before removing elements
+      const infoSection = product.querySelector('.info');
+      if (infoSection) {
+        product.dataset.brand = infoSection.querySelector('.brand')?.textContent || '';
+        product.dataset.name = infoSection.querySelector('.name')?.textContent || '';
+        product.dataset.price = infoSection.querySelector('.price')?.textContent || '';
+        product.dataset.rating = infoSection.querySelector('.rating')?.textContent || '';
+        
+        // Store badges HTML
+        const badgesEl = infoSection.querySelector('.badges');
+        if (badgesEl) {
+          product.dataset.badgesHtml = badgesEl.innerHTML;
+        }
+        
+        // Now completely remove the info section
+        infoSection.remove();
+      }
+      
+      // Remove the original image and image container
+      const originalImg = product.querySelector('.product-image');
+      if (originalImg) {
+        product.dataset.image = originalImg.src;
+        product.dataset.imageAlt = originalImg.alt;
+        originalImg.remove();
+      }
+      const imageContainer = product.querySelector('.product-image-container');
+      if (imageContainer) {
+        imageContainer.remove();
+      }
+    });
+
+    // Wrap product images in circle containers and extract dominant colors
+    document.querySelectorAll('.product:not(.video-card)').forEach(product => {
+      const img = product.querySelector('.product-image');
+      if (!img) return;
+      
+      // Create wrapper structure
+      const container = document.createElement('div');
+      container.className = 'product-image-container';
+      
+      const circle = document.createElement('div');
+      circle.className = 'product-image-circle';
+      
+      // Insert wrapper before image
+      img.parentNode.insertBefore(container, img);
+      container.appendChild(circle);
+      circle.appendChild(img);
+      
+      // Extract dominant color using CORS proxy
+      const extractColor = () => {
+        const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(img.src);
+        const proxyImg = new Image();
+        proxyImg.crossOrigin = 'anonymous';
+        
+        proxyImg.onload = () => {
+          try {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 50;
+            canvas.height = 50;
+            ctx.drawImage(proxyImg, 0, 0, 50, 50);
+            
+            const imageData = ctx.getImageData(0, 0, 50, 50).data;
+            
+            // Find the most saturated/vibrant color
+            let bestR = 200, bestG = 200, bestB = 200;
+            let bestSaturation = 0;
+            
+            for (let i = 0; i < imageData.length; i += 4) {
+              const pr = imageData[i];
+              const pg = imageData[i + 1];
+              const pb = imageData[i + 2];
+              const pa = imageData[i + 3];
+              
+              // Skip transparent pixels
+              if (pa < 128) continue;
+              
+              // Skip very dark or very light pixels
+              const brightness = (pr + pg + pb) / 3;
+              if (brightness < 30 || brightness > 240) continue;
+              
+              // Calculate saturation (difference between max and min channel)
+              const max = Math.max(pr, pg, pb);
+              const min = Math.min(pr, pg, pb);
+              const saturation = max - min;
+              
+              if (saturation > bestSaturation) {
+                bestSaturation = saturation;
+                bestR = pr;
+                bestG = pg;
+                bestB = pb;
+              }
+            }
+            
+            // Use the most vibrant color found
+            const bgColor = `rgb(${bestR}, ${bestG}, ${bestB})`;
+            container.style.backgroundColor = bgColor;
+          } catch (e) {
+            // Canvas error - use default background
+          }
+        };
+        
+        proxyImg.onerror = () => {
+          // Proxy failed - use default background
+        };
+        
+        proxyImg.src = proxyUrl;
+      };
+      
+      // Start extraction after original image loads (so we have the URL)
+      if (img.complete && img.src) {
+        extractColor();
+      } else {
+        img.addEventListener('load', extractColor);
+      }
+    });
+
+    // Simplify prices to just show the first price (no discount info)
+    document.querySelectorAll('.product .price').forEach(priceEl => {
+      const text = priceEl.textContent;
+      // Extract just the first price (e.g., "$76.00" from "$76.00 or $72.00 with Auto-Replenish")
+      const priceMatch = text.match(/\$[\d,.]+/);
+      if (priceMatch) {
+        priceEl.textContent = priceMatch[0];
+      }
+    });
+
+    // Clean up product names by removing brand name prefix
+    document.querySelectorAll('.product').forEach(product => {
+      const brandEl = product.querySelector('.brand');
+      const nameEl = product.querySelector('.name');
+      if (brandEl && nameEl) {
+        const brand = brandEl.textContent.trim();
+        let name = nameEl.textContent.trim();
+        
+        // Remove brand name from start of product name (case-insensitive)
+        const brandRegex = new RegExp('^' + brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*', 'i');
+        name = name.replace(brandRegex, '');
+        
+        // Also remove common patterns like "Brand Name - " or "Brand Name's"
+        const brandDashRegex = new RegExp('^' + brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "['']?s?\\s*[-–—]?\\s*", 'i');
+        name = name.replace(brandDashRegex, '');
+        
+        nameEl.textContent = name;
+      }
+    });
+
+    // Get all product cards
+    document.querySelectorAll('.product').forEach(product => {
+      product.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Extract product data (check data attributes first for video cards)
+        const isVideoCard = this.classList.contains('video-card');
+        const image = isVideoCard ? (this.dataset.image || '') : (this.querySelector('.product-image')?.src || '');
+        const alt = isVideoCard ? (this.dataset.imageAlt || '') : (this.querySelector('.product-image')?.alt || '');
+        const brand = isVideoCard ? (this.dataset.brand || '') : (this.querySelector('.brand')?.textContent || '');
+        const name = isVideoCard ? (this.dataset.name || '') : (this.querySelector('.name')?.textContent || '');
+        const price = isVideoCard ? (this.dataset.price || '') : (this.querySelector('.price')?.textContent || '');
+        const rating = isVideoCard ? (this.dataset.rating || '') : (this.querySelector('.rating')?.textContent || '');
+        const badgesHtml = isVideoCard ? (this.dataset.badgesHtml || '') : null;
+        const badgesEl = isVideoCard ? null : this.querySelector('.badges');
+        const link = this.href;
+        
+        // Populate modal
+        document.getElementById('modalImage').src = image;
+        document.getElementById('modalImage').alt = alt;
+        document.getElementById('modalBrand').textContent = brand;
+        document.getElementById('modalName').textContent = name;
+        document.getElementById('modalPrice').textContent = price;
+        document.getElementById('modalRating').textContent = rating;
+        document.getElementById('modalLink').href = link;
+        
+        // Clone badges
+        const modalBadges = document.getElementById('modalBadges');
+        modalBadges.innerHTML = '';
+        if (isVideoCard && badgesHtml) {
+          modalBadges.innerHTML = badgesHtml;
+        } else if (badgesEl) {
+          badgesEl.querySelectorAll('.badge').forEach(badge => {
+            const clone = badge.cloneNode(true);
+            modalBadges.appendChild(clone);
+          });
+        }
+        
+        // Show modal and reset scroll position
+        const modal = document.getElementById('productModal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Reset scroll after modal is visible
+        requestAnimationFrame(() => {
+          const modalContent = modal.querySelector('.modal-content');
+          if (modalContent) {
+            modalContent.scrollTop = 0;
+            modalContent.scrollTo(0, 0);
+          }
+        });
+      });
+    });
+
+    function closeModal() {
+      const modal = document.getElementById('productModal');
+      const card = modal.querySelector('.modal-card');
+      card.classList.add('closing');
+      
+      setTimeout(() => {
+        modal.classList.remove('active');
+        card.classList.remove('closing');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    // Close modal when clicking overlay
+    document.getElementById('productModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    // Scroll-based opacity for video overlays on touch devices
+    if (!window.matchMedia('(hover: hover)').matches) {
+      const videoCards = document.querySelectorAll('.product.video-card');
+      
+      function updateVideoOverlayOpacity() {
+        const viewportHeight = window.innerHeight;
+        const viewportCenter = viewportHeight / 2;
+        
+        // Middle 25% zone (from 37.5% to 62.5% of viewport)
+        const middleZoneTop = viewportHeight * 0.375;
+        const middleZoneBottom = viewportHeight * 0.625;
+        
+        videoCards.forEach(card => {
+          const overlay = card.querySelector('.product-video-overlay');
+          if (!overlay) return;
+          
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          
+          let opacity;
+          
+          if (cardCenter >= middleZoneTop && cardCenter <= middleZoneBottom) {
+            // In the middle 25% zone - full opacity
+            opacity = 1;
+          } else if (cardCenter < middleZoneTop) {
+            // Above the zone - fade based on distance to top
+            opacity = Math.max(0, cardCenter / middleZoneTop);
+          } else {
+            // Below the zone - fade based on distance to bottom
+            const distanceFromZone = cardCenter - middleZoneBottom;
+            const remainingSpace = viewportHeight - middleZoneBottom;
+            opacity = Math.max(0, 1 - (distanceFromZone / remainingSpace));
+          }
+          
+          overlay.style.opacity = opacity;
+        });
+      }
+      
+      window.addEventListener('scroll', updateVideoOverlayOpacity, { passive: true });
+      window.addEventListener('resize', updateVideoOverlayOpacity);
+      updateVideoOverlayOpacity();
+    }
+  </script>
+</body>
+</html>

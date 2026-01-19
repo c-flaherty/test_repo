@@ -2023,6 +2023,15 @@ h1 {
       window.addEventListener('resize', updateVideoOverlayOpacity);
       updateVideoOverlayOpacity();
     }
+
+    // Resume videos when returning to the page
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        document.querySelectorAll('.product-video').forEach(video => {
+          video.play().catch(() => {});
+        });
+      }
+    });
   </script>
 </body>
 </html>
